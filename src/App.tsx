@@ -1,38 +1,30 @@
-import React, {useState} from 'react';
-import { initialTodos } from './initialTodos';
-import { AddTodoForm } from './AddTodoForm';
-import { TodoList } from './TodoList';
-import { AddTodo, DeleteTodo, Todo, ToggleComplete } from './types';
+import React, { useState } from "react";
+import "./App.css";
+import "./power.css";
+import PowerForm from "./PowerForm";
+import PowerHistory from "./PowerHistory";
+import { PowerEntry } from "./data";
 
-const App: React.FC = () => {
-  const [todos, setTodos] = useState<Array<Todo>>(initialTodos);
-
-  const toggleComplete: ToggleComplete = selectedTodo => {
-    const updatedTodos = todos.map(todo => {
-      if (todo === selectedTodo) {
-        return { ...todo, complete: !todo.complete };
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
-
-  const addTodo: AddTodo = newTodo => {
-    newTodo.trim() !== "" &&
-      setTodos([...todos, { text: newTodo, complete: false }]);
-  }
-
-  const deleteTodo: DeleteTodo = selectedTodo => {
-    const removeItem = todos.filter((todo) => selectedTodo !== todo)
-    setTodos(removeItem);
-  }
+function App() {
+  const [lastAdded, setLastAdded] = useState<PowerEntry | null>(null);
 
   return (
-    <React.Fragment>
-      <TodoList todos={todos} toggleComplete={toggleComplete} deleteTodo={deleteTodo} />
-      <AddTodoForm addTodo={addTodo}/>
-    </React.Fragment>
-  )
+    <div className="app-container">
+      <div className="header">
+        <h1>Power Usage Logger</h1>
+      </div>
+
+      <div className="card form-card">
+        <PowerForm onAdded={setLastAdded} />
+      </div>
+
+      <div style={{height:16}} />
+
+      <div className="card history">
+        <PowerHistory />
+      </div>
+    </div>
+  );
 }
 
 export default App;

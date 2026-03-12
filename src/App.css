@@ -1,0 +1,107 @@
+/* Power Usage Logger styles */
+.app-container {
+  padding: 24px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f172a;
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:16px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e6edf3;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(15,23,42,0.03);
+}
+
+/* Form */
+.power-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.power-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #334155;
+}
+
+.power-form input[type="date"],
+.power-form input[type="number"],
+.power-form select {
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid #d1e3ef;
+  border-radius: 6px;
+  background: #fbfeff;
+  font-size: 14px;
+}
+
+.power-form button {
+  margin-top: 6px;
+  padding: 10px 14px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.power-form button:hover { background:#1e4fd8; }
+
+/* History table */
+.history {
+  margin-top: 12px;
+}
+
+.history table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.history th {
+  text-align: left;
+  color: #475569;
+  padding: 8px 6px;
+  font-weight: 600;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.history td {
+  padding: 10px 6px;
+  border-bottom: 1px solid #f1f5f9;
+  color:#0f172a;
+}
+
+.bar-track {
+  background:#f1f5f9;
+  height:12px;
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.bar-fill {
+  height:100%;
+  background:#60a5fa;
+  transition: width .2s ease;
+}
+
+/* Small helper */
+.muted { color:#64748b; font-size:13px; }
